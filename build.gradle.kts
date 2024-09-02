@@ -1,21 +1,21 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") apply false
 }
 
 group = "ru.patseev"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
 kotlin {
     jvmToolchain(21)
+}
+
+subprojects{
+    group = rootProject.group
+    version = rootProject.version
 }
