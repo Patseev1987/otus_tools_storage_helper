@@ -11,10 +11,6 @@ allprojects {
     }
 }
 
-kotlin {
-    jvmToolchain(21)
-}
-
 subprojects{
     group = rootProject.group
     version = rootProject.version
