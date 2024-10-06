@@ -8,4 +8,4 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }
 rootProject.name = "otus-tools-storage-helper"
-includeBuild("lessons")
+include("m1f1-first-app")
