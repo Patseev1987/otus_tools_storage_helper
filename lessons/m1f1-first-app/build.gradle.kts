@@ -1,11 +1,9 @@
 plugins {
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
+
 
 dependencies {
-    testImplementation(kotlin("test-junit"))
+    implementation(libs.kotlin.test)
 }
 
-kotlin {
-    jvmToolchain(21)
-}
