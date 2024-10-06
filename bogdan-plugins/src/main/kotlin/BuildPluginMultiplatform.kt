@@ -51,7 +51,6 @@ private fun KotlinMultiplatformExtension.configureTargets(project: Project) {
             }
         }
     }
-    linuxX64()
     macosArm64()
     macosX64()
     project.tasks.withType(JavaCompile::class.java) {
