@@ -19,5 +19,4 @@ plugins {
 }
 
 rootProject.name = "otus-tools-storage-helper"
-include(":m1f1-first-app")
-include(":example-with-coroutines")
+include(":tools-helper-temp")
