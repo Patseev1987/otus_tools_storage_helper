@@ -12,6 +12,10 @@ gradlePlugin {
             id = "build-kmp"
             implementationClass = "ru.otus.otuskotlin.marketplace.plugin.BuildPluginMultiplatform"
         }
+        register("build-simple-plugin") {
+            id = "build-simple-plugin"
+            implementationClass = "ru.otus.otuskotlin.marketplace.plugin.BuildBogdanSimplePlugin"
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 
 plugins{
     kotlin("multiplatform")
+    id("build-simple-plugin")
 }
 
 kotlin{
