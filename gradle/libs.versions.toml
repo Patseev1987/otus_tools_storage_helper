@@ -9,6 +9,10 @@ compose-plugin = "1.6.11"
 jvm-compiler = "17"
 jvm-language = "17"
 
+# BASE
+jvm-compiler = "17"
+jvm-language = "17"
+
 [libraries]
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-binaryCompatibilityValidator = "org.jetbrains.kotlinx:binary-compatibility-validator:0.13.2"
