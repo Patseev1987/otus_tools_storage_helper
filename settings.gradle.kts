@@ -1,7 +1,7 @@
-dependencyResolutionManagement {
-    repositories{
-        google()
-        mavenCentral()
+pluginManagement {
+    plugins{
+        val kotlinVersion: String by settings
+        kotlin("jvm") version kotlinVersion
     }
 }
 rootProject.name = "otus-tools-storage-helper"
