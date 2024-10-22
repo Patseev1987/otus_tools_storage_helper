@@ -4,8 +4,10 @@ import androidx.compose.ui.window.rememberWindowState
 
 fun main() {
     application {
-        Window(onCloseRequest = ::exitApplication, title = "!!!", state = rememberWindowState()) {
-            First()
+        Window(onCloseRequest = ::exitApplication, title = "Simple Worker Screen", state = rememberWindowState()) {
+            WorkerScreen(){
+                println(it)
+            }
         }
     }
 }
