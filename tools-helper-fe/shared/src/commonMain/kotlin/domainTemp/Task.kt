@@ -3,10 +3,10 @@ package domainTemp
 import kotlin.random.Random
 
 data class Task(
-    val id: Long,
-    val operation: String,
-    val tools: List<String>,
-    val partCount: Int
+    val id: Long = 0,
+    val operation: String = "---",
+    val tools: List<String> = listOf(),
+    val partCount: Int = 0
 ) {
     companion object {
         fun getExampleTasks(): List<Task> {
