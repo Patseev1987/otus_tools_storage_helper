@@ -1,5 +1,5 @@
 plugins{
-    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
 repositories {
@@ -7,7 +7,8 @@ repositories {
     mavenLocal()
 }
 
-
+group = "ru.patseev.helper"
+version = "0.0.1"
 
 subprojects {
     repositories {
@@ -18,6 +19,3 @@ subprojects {
 
 }
 
-kotlin {
-    jvmToolchain(17)
-}

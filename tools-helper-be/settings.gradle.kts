@@ -27,7 +27,6 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version("0.5.0")
 }
 
-rootProject.name = "otus-tools-storage-helper"
-include(":tools-helper-temp")
-include(":multiplatform-temp")
-include(":desktop")
+rootProject.name = "tools-helper-be"
+
+include(":tools-helper-v1-kmp")

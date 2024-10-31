@@ -302,6 +302,7 @@ components:
           $ref: '#/components/schemas/OrderStatus'
         partCount:
           type: integer
+          description: количество деталей
 
     OrderStatus:
       type: string
@@ -312,7 +313,7 @@ components:
         - completed
         - finished
 
-    InitResponse:
+    OrderInitResponse:
       allOf:
         - $ref: '#/components/schemas/IResponse'
 
@@ -326,7 +327,7 @@ components:
         - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
-            ad:
+            order:
               $ref: '#/components/schemas/OrderCreateObject'
 
     OrderReadObject:
@@ -342,7 +343,7 @@ components:
         - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
-            ad:
+            order:
               $ref: '#/components/schemas/OrderReadObject'
 
     OrderUpdateObject:
@@ -361,7 +362,7 @@ components:
         - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
-            ad:
+            order:
               $ref: '#/components/schemas/OrderUpdateObject'
 
     OrderDeleteObject:
@@ -379,7 +380,7 @@ components:
         - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
-            ad:
+            order:
               $ref: '#/components/schemas/OrderDeleteObject'
 
     OrderSearchFilter:
@@ -396,7 +397,7 @@ components:
         - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
-            adFilter:
+            orderFilter:
               $ref: '#/components/schemas/OrderSearchFilter'
 
 
@@ -438,7 +439,7 @@ components:
         - type: object
           description: Ответ с одним объектом объявления
           properties:
-            ad:
+            order:
               $ref: '#/components/schemas/OrderResponseObject'
 
     OrderResponseMulti:
@@ -446,7 +447,7 @@ components:
         - type: object
           description: Список найденных объектов
           properties:
-            ads:
+            orders:
               type: array
               items:
                 $ref: '#/components/schemas/OrderResponseObject'
