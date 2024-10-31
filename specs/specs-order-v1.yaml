@@ -177,18 +177,22 @@ components:
           offers: '#/components/schemas/OrderOffersResponse'
           init: '#/components/schemas/OrderInitResponse'
 
-
-    EmployeeId:
-      type: string
-      description: Идентификатор рабочего
     OrderId:
       type: string
       description: Идентификатор заказа
+
     OperationId:
       type: integer
+
     OrderLock:
       type: string
       description: Версия оптимистичной блокировки
+
+    ToolCode:
+      type: object
+      additionalProperties:
+        type: integer
+        format: int32
 
     Tool:
       type: object
@@ -283,19 +287,21 @@ components:
       type: object
       description: Объект описывает свойства, одинаковые для create и update
       properties:
+        operationId:
+          type: integer
+          description: идентификатор операции
+          example: 1
+        employeeId:
+          type: integer
+          description: Идентификатор рабочего сделавшего заказ
+          example: 777
         createTime:
           type: string
           description: Время создания/изменения заказа
         orderStatus:
           $ref: '#/components/schemas/OrderStatus'
-        employeeId:
-          $ref: '#/components/schemas/EmployeeId'
-        operationId:
-          $ref: '#/components/schemas/OperationId'
         partCount:
           type: integer
-
-
 
     OrderStatus:
       type: string
@@ -305,11 +311,6 @@ components:
         - in progress
         - completed
         - finished
-
-    IsFoolToolsInStorage:
-      type: boolean
-      description: 'весь инструмент находится в кладовой'
-      example: true
 
     InitResponse:
       allOf:
@@ -328,7 +329,7 @@ components:
             ad:
               $ref: '#/components/schemas/OrderCreateObject'
 
-    AdReadObject:
+    OrderReadObject:
       allOf:
         - type: object
           properties:
@@ -342,7 +343,7 @@ components:
         - type: object
           properties:
             ad:
-              $ref: '#/components/schemas/AdReadObject'
+              $ref: '#/components/schemas/OrderReadObject'
 
     OrderUpdateObject:
       allOf:
@@ -381,13 +382,13 @@ components:
             ad:
               $ref: '#/components/schemas/OrderDeleteObject'
 
-    AdSearchFilter:
+    OrderSearchFilter:
       type: object
       description: Набор фильтров для поиска
       properties:
         searchString:
           type: string
-          description: Поисковая строка, которая будет искаться в объявлениях
+          description: Поисковая строка, которая будет искаться заказе
 
     OrderSearchRequest:
       allOf:
@@ -396,19 +397,8 @@ components:
         - type: object
           properties:
             adFilter:
-              $ref: '#/components/schemas/AdSearchFilter'
+              $ref: '#/components/schemas/OrderSearchFilter'
 
-    AdOffersObject:
-      $ref: '#/components/schemas/AdReadObject'
-
-    AdOffersRequest:
-      allOf:
-        - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/OrderRequestDebug'
-        - type: object
-          properties:
-            ad:
-              $ref: '#/components/schemas/AdOffersObject'
 
     OrderResponseObject:
       allOf:
@@ -418,8 +408,14 @@ components:
           properties:
             id:
               $ref: '#/components/schemas/OrderId'
-            ownerId:
-              $ref: '#/components/schemas/EmployeeId'
+            tools:
+              type: array
+              items:
+                $ref: '#/components/schemas/ToolType'
+            missingTools:
+              type: array
+              items:
+                $ref: '#/components/schemas/ToolType'
             lock:
               $ref: '#/components/schemas/OrderLock'
             permissions:
