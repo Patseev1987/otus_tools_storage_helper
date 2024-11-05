@@ -53,6 +53,8 @@ private fun KotlinMultiplatformExtension.configureTargets(project: Project) {
     }
 
     linuxArm64()
+    macosX64()
+    macosArm64()
 
     project.tasks.withType(JavaCompile::class.java) {
         sourceCompatibility = libs.versions.jvm.language.get()

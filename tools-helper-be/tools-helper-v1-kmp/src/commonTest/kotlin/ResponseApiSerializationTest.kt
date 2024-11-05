@@ -7,8 +7,8 @@ import kotlin.test.assertEquals
 class ResponseApiSerializationTest {
     private val response: IResponse = OrderCreateResponse(
         order = OrderResponseObject(
-            operationId = 10,
-            employeeId = 1,
+            operationId = "10",
+            employeeId = "1",
             orderStatus = OrderStatus.COMPLETED,
             partCount = 77,
             id = "11111"

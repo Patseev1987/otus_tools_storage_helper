@@ -181,26 +181,33 @@ components:
       type: string
       description: Идентификатор заказа
 
+    TechnologyId:
+      type: string
+      description: Идентификатор технологии
+
     OperationId:
-      type: integer
+      type: string
+      description: Идентификатор операции
+
+    EmployeeId:
+      type: string
+      description: Идентификатор работника
+
+    OperationStepId:
+      type: string
+      description: Идентификатор перехода
 
     OrderLock:
       type: string
       description: Версия оптимистичной блокировки
-
-    ToolCode:
-      type: object
-      additionalProperties:
-        type: integer
-        format: int32
 
     Tool:
       type: object
       properties:
         toolCode:
           type: string
-          description: шифр инструмента
-          example: 2040-1001
+          description: Заводской уникальный шифр инструмента
+          example: 2004-9060
         toolLife:
           type: integer
           description: стойкость инструмента
@@ -214,7 +221,7 @@ components:
           description: описание
           example: Пластина режущая
         toolType:
-            $ref: '#/components/schemas/ToolType'
+          $ref: '#/components/schemas/ToolType'
 
     ToolType:
       type: string
@@ -223,25 +230,30 @@ components:
         - cutting
         - measuring
         - helper
+        -
+    ToolCodeAndCount:
+      description: Словарь <Уникальный код инструмента, количество инструмента>
+      type: object
+      additionalProperties:
+        type: integer
+        format: int32
 
     OperationStep:
       type: object
       properties:
         id:
-          type: integer
-          description: идентификатор
-          example: 1
+          $ref: '#/components/schemas/OperationStepId'
         number:
           type: integer
+          format: int32
           description: номер перехода
           example: 2
         operationId:
-          type: integer
-          description: идентификатор операции
-          example: 10
+          $ref: '#/components/schemas/OperationId'
         duration:
           type: integer
-          description: длительность
+          format: int32
+          description: длительность в секундах
           example: 1200
         tools:
           type: array
@@ -252,9 +264,7 @@ components:
       type: object
       properties:
         id:
-          type: integer
-          description: идентификатор
-          example: 1
+          $ref: '#/components/schemas/OperationId'
         operationNumber:
           type: string
           description: номер операции
@@ -262,9 +272,7 @@ components:
         operationType:
           $ref: '#/components/schemas/OperationType'
         technologyId:
-          type: integer
-          description: идентификатор технологии
-          example: 3
+          $ref: '#/components/schemas/TechnologyId'
         machine:
           type: string
           description: станок
@@ -275,26 +283,22 @@ components:
 
 
     OperationType:
-        type: string
-        description: тип операции
-        enum:
-          - turning
-          - milling
-          - grinding
-          - measuring
+      type: string
+      description: тип операции
+      enum:
+        - turning
+        - milling
+        - grinding
+        - measuring
 
     BaseOrder:
       type: object
       description: Объект описывает свойства, одинаковые для create и update
       properties:
         operationId:
-          type: integer
-          description: идентификатор операции
-          example: 1
+          $ref: '#/components/schemas/OperationId'
         employeeId:
-          type: integer
-          description: Идентификатор рабочего сделавшего заказ
-          example: 777
+          $ref: '#/components/schemas/EmployeeId'
         createTime:
           type: string
           description: Время создания/изменения заказа
@@ -410,13 +414,9 @@ components:
             id:
               $ref: '#/components/schemas/OrderId'
             tools:
-              type: array
-              items:
-                $ref: '#/components/schemas/ToolType'
+                $ref: '#/components/schemas/ToolCodeAndCount'
             missingTools:
-              type: array
-              items:
-                $ref: '#/components/schemas/ToolType'
+                $ref: '#/components/schemas/ToolCodeAndCount'
             lock:
               $ref: '#/components/schemas/OrderLock'
             permissions:

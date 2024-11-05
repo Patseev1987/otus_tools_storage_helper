@@ -13,8 +13,8 @@ class RequestApiSerializationTest {
             stub = OrderRequestDebugStubs.BAD_ID
         ),
         order = OrderCreateObject(
-            operationId = 10,
-            employeeId = 1,
+            operationId = "10",
+            employeeId = "1",
             orderStatus = OrderStatus.COMPLETED,
             partCount = 77,
         )
@@ -26,8 +26,8 @@ class RequestApiSerializationTest {
 
         println(json)
 
-        assertContains(json, Regex("\"operationId\":\\s*10"))
-        assertContains(json, Regex("\"employeeId\":\\s*1"))
+        assertContains(json, Regex("\"operationId\":\\s*\"10\""))
+        assertContains(json, Regex("\"employeeId\":\\s*\"1\""))
         assertContains(json, Regex("\"orderStatus\":\\s*\"completed\""))
         assertContains(json, Regex("\"mode\":\\s*\"stub\""))
         assertContains(json, Regex("\"stub\":\\s*\"badId\""))
