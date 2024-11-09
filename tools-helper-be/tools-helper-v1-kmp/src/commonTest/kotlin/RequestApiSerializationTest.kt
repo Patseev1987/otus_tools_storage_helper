@@ -20,6 +20,18 @@ class RequestApiSerializationTest {
         )
     )
 
+    private val response: IResponse = OrderCreateResponse(
+        result = ResponseResult.SUCCESS,
+        order = OrderResponseObject(
+            operationId = "10",
+            employeeId = "1",
+            orderStatus = OrderStatus.COMPLETED,
+            partCount = 77,
+            id = "111",
+            tools = mapOf("2004-9060" to 50, "3070-1010" to 10)
+        )
+    )
+
     @Test
     fun serialize() {
         val json = apiMapper.encodeToString(IRequest.serializer(), request)
