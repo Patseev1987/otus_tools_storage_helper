@@ -3,7 +3,7 @@ package models
 enum class ToolsHelperOrderStatus {
     NONE,
     CREATED,
-    PROGRESS,
+    IN_PROGRESS,
     COMPLETED,
     FINISHED
 }

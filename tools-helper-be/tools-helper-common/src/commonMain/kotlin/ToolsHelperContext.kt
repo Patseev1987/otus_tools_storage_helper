@@ -8,7 +8,7 @@ import stubs.ToolsHelperStubs
 
 data class ToolsHelperContext(
     var command: ToolsHelperCommand = ToolsHelperCommand.NONE,
-    var state: ToolsHelperOrderStatus = ToolsHelperOrderStatus.NONE,
+    var state: ToolsHelperState = ToolsHelperState.NONE,
     val errors: MutableList<ToolsHelperError> = mutableListOf(),
 
     var workMode: ToolsHelperWorkMode = ToolsHelperWorkMode.PROD,
