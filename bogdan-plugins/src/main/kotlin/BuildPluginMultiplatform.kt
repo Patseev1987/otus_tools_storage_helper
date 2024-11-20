@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.marketplace.plugin
+
 
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.api.Plugin
@@ -51,8 +51,11 @@ private fun KotlinMultiplatformExtension.configureTargets(project: Project) {
             }
         }
     }
-    macosArm64()
+
+    linuxArm64()
     macosX64()
+    macosArm64()
+
     project.tasks.withType(JavaCompile::class.java) {
         sourceCompatibility = libs.versions.jvm.language.get()
         targetCompatibility = libs.versions.jvm.compiler.get()
