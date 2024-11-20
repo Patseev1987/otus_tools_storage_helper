@@ -29,6 +29,6 @@ plugins {
 
 rootProject.name = "tools-helper-be"
 
-include(":tools-helper-v1-kmp")
+include(":tools-helper-api-v1-kmp")
 include(":tools-helper-common")
-include(":tools-helper-mapper")
+include(":tools-helper-api-v1-mapper")
