@@ -38,11 +38,8 @@ coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", ve
 kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.23.2" }
 
 # Logging
-logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
-logback-appenders = { module = "com.sndyuk:logback-more-appenders", version = "1.8.8" }
-logback-logstash = { module = "net.logstash.logback:logstash-logback-encoder", version = "7.4" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
-logger-fluentd = { module = "org.fluentd:fluent-logger", version = "0.3.4" }
+
 
 # Ktor
 ktor-network = { module = "io.ktor:ktor-network", version.ref = "ktor" }

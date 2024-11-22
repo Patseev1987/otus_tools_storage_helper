@@ -20,6 +20,6 @@ data class ToolsHelperContext(
     var orderFilterRequest: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
 
     var orderResponse: ToolsHelperOrder = ToolsHelperOrder(),
-    var ordersResponse: MutableList<ToolsHelperOrder> = mutableListOf(),
+    var ordersResponses: MutableList<ToolsHelperOrder> = mutableListOf(),
 
     )

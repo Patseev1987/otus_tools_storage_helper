@@ -1,5 +1,3 @@
-package ru.otus.otuskotlin.marketplace.stubs
-
 import models.*
 
 object ToolsHelperStubOrder {
