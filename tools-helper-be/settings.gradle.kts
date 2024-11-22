@@ -32,3 +32,4 @@ rootProject.name = "tools-helper-be"
 include(":tools-helper-api-v1-kmp")
 include(":tools-helper-common")
 include(":tools-helper-api-v1-mapper")
+include(":tools-helper-app-ktor")
