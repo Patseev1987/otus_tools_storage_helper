@@ -6,7 +6,6 @@ okhttp = "4.12.0"
 compose-plugin = "1.6.11"
 kotlinx-serialization = "1.6.3"
 kotlinx-datetime = "0.5.0"
-logback = "1.5.3"
 kotest = "5.9.1"
 kermit = "2.0.3"
 
@@ -20,7 +19,7 @@ testcontainers = "1.19.7"
 muschko = "9.4.0"
 
 # BASE
-jvm-compiler = "17"
+jvm-compiler = "21"
 jvm-language = "21"
 
 
@@ -57,6 +56,7 @@ ktor-server-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "
 ktor-server-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
 ktor-server-calllogging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor" }
 ktor-server-test = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
+ktor-server-websocket = { module = "io.ktor:ktor-server-websockets", version.ref = "ktor" }
 
 # Testing
 kotest-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }

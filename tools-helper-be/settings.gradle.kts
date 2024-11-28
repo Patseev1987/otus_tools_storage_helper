@@ -24,7 +24,7 @@ pluginManagement {
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.5.0")
+    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.8.0")
 }
 
 rootProject.name = "tools-helper-be"
@@ -37,3 +37,4 @@ include(":tools-helper-stubs")
 include(":tools-helper-biz")
 include(":tools-helper-app-common")
 include(":tools-helper-api-log1")
+include(":tools-helper-app-ktor")

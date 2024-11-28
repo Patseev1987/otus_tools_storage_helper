@@ -1,6 +1,7 @@
 import kotlinx.datetime.Instant
 import models.*
 import stubs.ToolsHelperStubs
+import ws.IToolsHelperWsSession
 
 
 data class ToolsHelperContext(
@@ -10,6 +11,7 @@ data class ToolsHelperContext(
 
     var workMode: ToolsHelperWorkMode = ToolsHelperWorkMode.PROD,
     var stubCase: ToolsHelperStubs = ToolsHelperStubs.NONE,
+    var wsSession: IToolsHelperWsSession = IToolsHelperWsSession.NONE,
 
     var requestId: ToolsHelperRequestId = ToolsHelperRequestId.NONE,
     var timeStart: Instant = Instant.NONE,

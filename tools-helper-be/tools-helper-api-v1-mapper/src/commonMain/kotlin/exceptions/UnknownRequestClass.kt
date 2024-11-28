@@ -1,3 +1,3 @@
 package exceptions
 
-class UnknownRequestClass(clazz: Class<*>) : RuntimeException("Class $clazz cannot be mapped to ToolsHelperContext")
+class UnknownRequestClass(message: String) : RuntimeException("Class cannot be mapped to ToolsHelperContext\n$message")
