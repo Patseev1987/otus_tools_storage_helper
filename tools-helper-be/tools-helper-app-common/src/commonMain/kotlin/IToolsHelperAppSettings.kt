@@ -1,4 +1,3 @@
-
 import ru.patseev.toolsHelper.biz.ToolsHelperOrderProcessor
 
 interface IToolsHelperAppSettings {

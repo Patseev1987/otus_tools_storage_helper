@@ -1,10 +1,10 @@
 dependencyResolutionManagement {
-    versionCatalogs{
-        create("libs"){
+    versionCatalogs {
+        create("libs") {
             from(files("../gradle/libs.versions.toml"))
         }
     }
-    repositories{
+    repositories {
         gradlePluginPortal()
         mavenCentral()
     }
@@ -24,7 +24,7 @@ pluginManagement {
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version("0.5.0")
+    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.5.0")
 }
 
 rootProject.name = "tools-helper-be"

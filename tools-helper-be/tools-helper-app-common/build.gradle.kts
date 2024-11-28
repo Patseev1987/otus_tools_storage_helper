@@ -9,8 +9,6 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
                 implementation(libs.coroutines.core)
-
-                // transport models
                 implementation(project(":tools-helper-api-log1"))
                 implementation(project(":tools-helper-common"))
                 implementation(project(":tools-helper-biz"))
@@ -22,6 +20,8 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
                 implementation(libs.coroutines.test)
                 implementation(project(":tools-helper-api-v1-kmp"))
+                implementation(project(":tools-helper-api-v1-mapper"))
+                implementation(project(":tools-helper-biz"))
             }
         }
 

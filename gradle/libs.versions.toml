@@ -21,7 +21,7 @@ muschko = "9.4.0"
 
 # BASE
 jvm-compiler = "17"
-jvm-language = "17"
+jvm-language = "21"
 
 
 [libraries]

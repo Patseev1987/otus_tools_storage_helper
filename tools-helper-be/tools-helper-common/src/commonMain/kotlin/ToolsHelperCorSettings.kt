@@ -1,4 +1,3 @@
-
 import ru.patseev.helper.logging.ToolsHelperLoggerProvider
 
 data class ToolsHelperCorSettings(

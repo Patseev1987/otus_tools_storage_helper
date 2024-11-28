@@ -9,7 +9,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-
                 implementation(project(":tools-helper-common"))
                 implementation(project(":tools-helper-stubs"))
             }
@@ -18,13 +17,12 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-
                 api(libs.coroutines.test)
             }
         }
         jvmMain {
             dependencies {
-                implementation(kotlin("stdlib-jdk8"))
+                implementation(kotlin("stdlib"))
             }
         }
         jvmTest {
