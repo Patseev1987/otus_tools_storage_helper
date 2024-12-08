@@ -1,0 +1,105 @@
+openapi: 3.0.4
+info:
+  title: Tools Helper log models
+  description: Log models for logging services of toolsHelper
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+paths: {}
+
+components:
+  schemas:
+    CommonLogModel:
+      title: Общая модель лога
+      description: Общая модель лога для всех микросервисов системы
+      type: object
+      properties:
+        messageTime:
+          type: string
+        logId:
+          type: string
+        source:
+          type: string
+        order:
+          $ref: '#/components/schemas/ToolsHelperOrderLogModel'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorLogModel'
+
+    ToolsHelperOrderLogModel:
+      title: Модель лога для микросервиса Tools Helper
+      type: object
+      properties:
+        requestId:
+          type: string
+        operation:
+          type: string
+          enum:
+            - create
+            - read
+            - update
+            - delete
+            - search
+            - init
+            - finish
+        requestOrder:
+          $ref: '#/components/schemas/OrderLog'
+        requestFilter:
+          $ref: '#/components/schemas/OrderFilterLog'
+        responseOrder:
+          $ref: '#/components/schemas/OrderLog'
+        responseOrders:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderLog'
+
+    ErrorLogModel:
+      title: Модель лога для ошибки
+      type: object
+      properties:
+        message:
+          type: string
+        field:
+          type: string
+        code:
+          type: string
+        level:
+          type: string
+
+    OrderLog:
+      title: Модель лога для заказа
+      type: object
+      properties:
+        id:
+          type: string
+        operationId:
+          type: string
+        ownerId:
+          type: string
+        orderStatus:
+          type: string
+        partCount:
+          type: string
+        createTime:
+          type: string
+        tools:
+          type: string
+        missingTools:
+          type: string
+        permissions:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+
+    OrderFilterLog:
+      title: Модель лога фильтра
+      properties:
+        searchString:
+          type: string
+        ownerId:
+          type: string
+
+

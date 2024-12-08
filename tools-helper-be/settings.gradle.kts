@@ -1,10 +1,10 @@
 dependencyResolutionManagement {
-    versionCatalogs{
-        create("libs"){
+    versionCatalogs {
+        create("libs") {
             from(files("../gradle/libs.versions.toml"))
         }
     }
-    repositories{
+    repositories {
         gradlePluginPortal()
         mavenCentral()
     }
@@ -24,7 +24,7 @@ pluginManagement {
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version("0.5.0")
+    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.8.0")
 }
 
 rootProject.name = "tools-helper-be"
@@ -32,3 +32,9 @@ rootProject.name = "tools-helper-be"
 include(":tools-helper-api-v1-kmp")
 include(":tools-helper-common")
 include(":tools-helper-api-v1-mapper")
+include(":tools-helper-app-ktor")
+include(":tools-helper-stubs")
+include(":tools-helper-biz")
+include(":tools-helper-app-common")
+include(":tools-helper-api-log1")
+include(":tools-helper-app-ktor")

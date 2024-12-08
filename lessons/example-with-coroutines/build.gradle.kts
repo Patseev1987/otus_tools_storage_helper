@@ -3,7 +3,7 @@ plugins{
 }
 
 dependencies{
-    implementation(libs.coroutines)
+    implementation(libs.coroutines.core)
     implementation(libs.okhttp.client)
     implementation(libs.jackson.module)
     implementation(libs.kotlin.test)

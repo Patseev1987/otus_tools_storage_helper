@@ -9,6 +9,8 @@ fun ToolsHelperContext.toTransportOrder(): IResponse = when (val cmd = command) 
     ToolsHelperCommand.DELETE -> toTransportDelete()
     ToolsHelperCommand.UPDATE -> toTransportUpdate()
     ToolsHelperCommand.SEARCH -> toTransportSearch()
+    ToolsHelperCommand.INIT -> toTransportInit()
+    ToolsHelperCommand.FINISH -> toTransportFinish()
     ToolsHelperCommand.NONE -> throw UnknownToolsHelperCommand(cmd)
 }
 
@@ -30,7 +32,7 @@ fun ToolsHelperContext.toTransportUpdate() = OrderUpdateResponse(
     order = orderResponse.toTransportOrder()
 )
 
-fun ToolsHelperContext.toTransportDelete() = OrderCreateResponse(
+fun ToolsHelperContext.toTransportDelete() = OrderDeleteResponse(
     result = state.toResult(),
     errors = errors.toTransportErrors(),
     order = orderResponse.toTransportOrder()
@@ -39,7 +41,17 @@ fun ToolsHelperContext.toTransportDelete() = OrderCreateResponse(
 fun ToolsHelperContext.toTransportSearch() = OrderSearchResponse(
     result = state.toResult(),
     errors = errors.toTransportErrors(),
-   // order = orderResponse.toTransportOrder()
+    // order = orderResponse.toTransportOrder()
+)
+
+fun ToolsHelperContext.toTransportInit() = OrderInitResponse(
+    result = state.toResult(),
+    errors = errors.toTransportErrors(),
+)
+
+fun ToolsHelperContext.toTransportFinish() = OrderFinishResponse(
+    result = state.toResult(),
+    errors = errors.toTransportErrors(),
 )
 
 fun List<ToolsHelperOrder>.toTransportOrder(): List<OrderResponseObject>? = this
@@ -47,7 +59,7 @@ fun List<ToolsHelperOrder>.toTransportOrder(): List<OrderResponseObject>? = this
     .toList()
     .takeIf { it.isNotEmpty() }
 
-private fun ToolsHelperOrder.toTransportOrder(): OrderResponseObject = OrderResponseObject(
+private fun ToolsHelperOrder. toTransportOrder(): OrderResponseObject = OrderResponseObject(
     id = id.takeIf { it != ToolsHelperOrderId.NONE }?.asString(),
     operationId = operationId.takeIf { it != ToolsHelperOperationId.NONE }?.asString(),
     employeeId = ownerId.takeIf { it != ToolsHelperEmployeeId.NONE }?.asString(),

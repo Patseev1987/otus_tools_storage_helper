@@ -6,5 +6,7 @@ enum class ToolsHelperCommand {
     READ,
     UPDATE,
     DELETE,
-    SEARCH
+    SEARCH,
+    INIT,
+    FINISH,
 }

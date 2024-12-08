@@ -14,7 +14,7 @@ fun ToolsHelperContext.fromTransport(request: IRequest) = when (request) {
     is OrderReadRequest -> fromTransport(request)
     is OrderSearchRequest -> fromTransport(request)
     is OrderUpdateRequest -> fromTransport(request)
-    else -> throw UnknownRequestClass(request.javaClass)
+    else -> throw UnknownRequestClass(request.toString())
 }
 
 private fun String?.toOrderId() = this?.let { ToolsHelperOrderId(it) } ?: ToolsHelperOrderId.NONE
@@ -45,7 +45,7 @@ fun ToolsHelperContext.fromTransport(request: OrderCreateRequest) {
 }
 
 fun ToolsHelperContext.fromTransport(request: OrderReadRequest) {
-    command = ToolsHelperCommand.CREATE
+    command = ToolsHelperCommand.READ
     orderRequest = request.order?.toInternal() ?: ToolsHelperOrder()
     workMode = request.debug.transportToWorkMode()
     stubCase = request.debug.transportToStubCase()
@@ -62,7 +62,7 @@ fun ToolsHelperContext.fromTransport(request: OrderUpdateRequest) {
 }
 
 fun ToolsHelperContext.fromTransport(request: OrderDeleteRequest) {
-    command = ToolsHelperCommand.UPDATE
+    command = ToolsHelperCommand.DELETE
     orderRequest = request.order?.toInternal() ?: ToolsHelperOrder()
     workMode = request.debug.transportToWorkMode()
     stubCase = request.debug.transportToStubCase()
@@ -73,7 +73,7 @@ private fun OrderDeleteObject?.toInternal(): ToolsHelperOrder =
     else ToolsHelperOrder()
 
 fun ToolsHelperContext.fromTransport(request: OrderSearchRequest) {
-    command = ToolsHelperCommand.UPDATE
+    command = ToolsHelperCommand.SEARCH
     orderFilterRequest = request.orderFilter.toInternal()
     workMode = request.debug.transportToWorkMode()
     stubCase = request.debug.transportToStubCase()

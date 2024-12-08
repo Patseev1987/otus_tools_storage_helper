@@ -1,4 +1,3 @@
-
 import kotlinx.datetime.Instant
 
 private val INSTANT_NONE = Instant.fromEpochMilliseconds(Long.MIN_VALUE)
