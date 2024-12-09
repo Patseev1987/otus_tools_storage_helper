@@ -27,4 +27,5 @@ plugins {
 
 
 include(":logging-kermit")
+include(":cor-lib")
 
