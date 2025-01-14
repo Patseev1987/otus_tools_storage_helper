@@ -7,13 +7,13 @@ class CorWorker<T>(
     title: String = "",
     description: String = "",
     blockOn: suspend T.() -> Boolean = { true },
-    blockExcept: suspend T.(e: Throwable) -> Unit,
+    blockExcept: suspend T.(e: Throwable) -> Unit = {},
     private val blockHandel: suspend T.() -> Unit
 ) : AbstractICorExec<T>(title, description, blockOn, blockExcept) {
     override suspend fun handle(context: T) = blockHandel(context)
 }
 
-class CoreWorkerDsl<T> : CorExecDsl<T>(), ICorWorkerDsl<T> {
+class CorWorkerDsl<T> : CorExecDsl<T>(), ICorWorkerDsl<T> {
     private var blockHandle: suspend T.() -> Unit = {}
 
     override fun handle(function: suspend T.() -> Unit) {

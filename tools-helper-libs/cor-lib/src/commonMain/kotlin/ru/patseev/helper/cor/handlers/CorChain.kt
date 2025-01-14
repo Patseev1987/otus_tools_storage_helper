@@ -19,7 +19,7 @@ class CorChain<T>(
 }
 
 
-class CoreChainDsl<T> : ICorChainDsl<T>, CorExecDsl<T>() {
+class CorChainDsl<T> : ICorChainDsl<T>, CorExecDsl<T>() {
     override var description: String = ""
     override var title: String = ""
 
