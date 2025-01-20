@@ -8,7 +8,7 @@ class CorChain<T>(
     title: String = "",
     description: String = "",
     blockOn: suspend T.() -> Boolean = { true },
-    blockExcept: suspend T.(e: Throwable) -> Unit,
+    blockExcept: suspend T.(e: Throwable) -> Unit = {},
     private val execs: List<ICorExec<T>>
 ) : AbstractICorExec<T>(title, description, blockOn, blockExcept) {
     override suspend fun handle(context: T) {
