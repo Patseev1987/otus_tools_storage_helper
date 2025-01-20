@@ -9,6 +9,7 @@ data class ToolsHelperContext(
     var state: ToolsHelperState = ToolsHelperState.NONE,
     val errors: MutableList<ToolsHelperError> = mutableListOf(),
 
+    var corSettings: ToolsHelperCorSettings = ToolsHelperCorSettings(),
     var workMode: ToolsHelperWorkMode = ToolsHelperWorkMode.PROD,
     var stubCase: ToolsHelperStubs = ToolsHelperStubs.NONE,
     var wsSession: IToolsHelperWsSession = IToolsHelperWsSession.NONE,

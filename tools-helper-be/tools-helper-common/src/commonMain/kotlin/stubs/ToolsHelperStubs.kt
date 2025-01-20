@@ -7,5 +7,6 @@ enum class ToolsHelperStubs {
     BAD_ID,
     CANNOT_DELETE,
     BAD_SEARCH_STRING,
-    DB_ERROR
+    DB_ERROR,
+    BAD_PARTS_COUNT
 }

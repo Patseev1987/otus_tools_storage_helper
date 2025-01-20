@@ -3,7 +3,7 @@ package ru.patseev.helper.ktor.plugin
 import ToolsHelperCorSettings
 import io.ktor.server.application.*
 import ru.patseev.helper.ktor.ToolsHelperAppSettings
-import ru.patseev.toolsHelper.biz.ToolsHelperOrderProcessor
+import ToolsHelperOrderProcessor
 
 fun Application.initAppSettings(): ToolsHelperAppSettings {
     val corSettings = ToolsHelperCorSettings(
