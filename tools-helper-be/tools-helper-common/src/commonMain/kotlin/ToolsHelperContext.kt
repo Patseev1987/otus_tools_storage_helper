@@ -19,6 +19,12 @@ data class ToolsHelperContext(
     var orderRequest: ToolsHelperOrder = ToolsHelperOrder(),
     var orderFilterRequest: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
 
+    var orderValidating: ToolsHelperOrder = ToolsHelperOrder(),
+    var orderFilterValidating: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
+
+    var orderValidated: ToolsHelperOrder = ToolsHelperOrder(),
+    var orderFilterValidated: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
+
     var orderResponse: ToolsHelperOrder = ToolsHelperOrder(),
     var ordersResponses: MutableList<ToolsHelperOrder> = mutableListOf(),
 
