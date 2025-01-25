@@ -9,7 +9,10 @@ import helper.fail
 
 fun ICorChainDsl<ToolsHelperContext>.validateLockNotEmpty(title: String) = worker {
     this.title = title
-    on { orderValidating.lock.asString().isEmpty() }
+    on {
+        orderValidating.lock.asString().isEmpty()
+    }
+
     handle {
         fail(
             errorValidation(

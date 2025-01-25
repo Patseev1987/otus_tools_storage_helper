@@ -9,7 +9,7 @@ import ru.patseev.helper.cor.worker
 fun ICorChainDsl<ToolsHelperContext>.validatePartCount(title: String) = worker {
     this.title = title
 
-    on { orderValidating.partCount <= 0 }
+    on { orderValidating.partCount <= 0}
 
     handle {
         fail(

@@ -18,7 +18,7 @@ data class ToolsHelperOrder(
 ) {
     fun isEmpty() = this == NONE
 
-    fun deepCopy() = ToolsHelperOrder().copy(
+    fun deepCopy() = copy(
         permissionsClient = permissionsClient.toMutableSet(),
         tools = tools.toMutableMap(),
         missingTools = missingTools.toMutableMap()

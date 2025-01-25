@@ -1,10 +1,7 @@
 import general.initStatus
 import general.operation
 import general.stubs
-import models.ToolsHelperCommand
-import models.ToolsHelperEmployeeId
-import models.ToolsHelperOperationId
-import models.ToolsHelperOrderId
+import models.*
 import ru.patseev.helper.cor.rootChain
 import ru.patseev.helper.cor.worker
 import stubs.*
@@ -82,11 +79,16 @@ class ToolsHelperOrderProcessor(private val corSettings: ToolsHelperCorSettings 
                 worker("Очистка ownerId") {
                     orderValidating.ownerId = ToolsHelperEmployeeId(orderValidating.ownerId.asString().trim())
                 }
+                worker("Очистка lock") {
+                    orderValidating.lock = ToolsHelperOrderLock(orderValidating.lock.asString().trim())
+                }
                 worker("Очистка tools") { orderValidating.tools = mutableMapOf() }
                 worker("Очистка missingTools") { orderValidating.missingTools = mutableMapOf() }
                 validateIds("Проверка полей с ид")
                 validateOrderStatus("Проверка статуса заказа")
                 validatePartCount("Проверка количества деталей")
+                validateLockNotEmpty("Проверка на непустой lock")
+                validateLockProperFormat("Проверка формата lock")
                 validateCreateDate("Проверяем дату создания")
                 finishAdValidation("Завершение проверок")
             }
@@ -106,6 +108,9 @@ class ToolsHelperOrderProcessor(private val corSettings: ToolsHelperCorSettings 
             validation {
                 worker("Копируем поля в adValidating") { orderValidating = orderRequest.deepCopy() }
                 worker("Очистка id") { orderValidating.id = ToolsHelperOrderId(orderValidating.id.asString().trim()) }
+                worker("Очистка lock") {
+                    orderValidating.lock = ToolsHelperOrderLock(orderValidating.lock.asString().trim())
+                }
                 validateIdNotEmpty("Проверка, ид не пустое")
                 validateIdProperFormat("Проверка корректного заполнения ид")
                 validateLockNotEmpty("Проверка на непустой lock")
