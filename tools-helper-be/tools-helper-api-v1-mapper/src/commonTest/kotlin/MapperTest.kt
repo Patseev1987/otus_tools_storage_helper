@@ -1,8 +1,8 @@
 import kotlinx.datetime.Clock
 import models.*
-import org.junit.Test
 import ru.patseev.helper.api.models.*
 import stubs.ToolsHelperStubs
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class MapperTest {

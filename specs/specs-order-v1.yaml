@@ -321,6 +321,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/IResponse'
 
+    OrderFinishResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+
     OrderCreateObject:
       allOf:
         - $ref: '#/components/schemas/BaseOrder'

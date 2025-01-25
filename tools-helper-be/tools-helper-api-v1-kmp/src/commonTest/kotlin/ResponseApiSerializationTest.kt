@@ -1,5 +1,8 @@
 import kotlinx.serialization.encodeToString
-import ru.patseev.helper.api.models.*
+import ru.patseev.helper.api.models.IResponse
+import ru.patseev.helper.api.models.OrderCreateResponse
+import ru.patseev.helper.api.models.OrderResponseObject
+import ru.patseev.helper.api.models.OrderStatus
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
@@ -14,8 +17,7 @@ class ResponseApiSerializationTest {
             id = "11111"
         ),
 
-    )
-
+        )
 
 
     @Test
