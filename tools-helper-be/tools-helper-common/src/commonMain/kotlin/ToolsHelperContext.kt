@@ -9,6 +9,7 @@ data class ToolsHelperContext(
     var state: ToolsHelperState = ToolsHelperState.NONE,
     val errors: MutableList<ToolsHelperError> = mutableListOf(),
 
+    var corSettings: ToolsHelperCorSettings = ToolsHelperCorSettings(),
     var workMode: ToolsHelperWorkMode = ToolsHelperWorkMode.PROD,
     var stubCase: ToolsHelperStubs = ToolsHelperStubs.NONE,
     var wsSession: IToolsHelperWsSession = IToolsHelperWsSession.NONE,
@@ -17,6 +18,12 @@ data class ToolsHelperContext(
     var timeStart: Instant = Instant.NONE,
     var orderRequest: ToolsHelperOrder = ToolsHelperOrder(),
     var orderFilterRequest: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
+
+    var orderValidating: ToolsHelperOrder = ToolsHelperOrder(),
+    var orderFilterValidating: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
+
+    var orderValidated: ToolsHelperOrder = ToolsHelperOrder(),
+    var orderFilterValidated: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
 
     var orderResponse: ToolsHelperOrder = ToolsHelperOrder(),
     var ordersResponses: MutableList<ToolsHelperOrder> = mutableListOf(),
