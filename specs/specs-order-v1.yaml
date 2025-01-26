@@ -400,7 +400,7 @@ components:
           description: Поисковая строка, которая будет искаться заказе
         ownerId:
           $ref: '#/components/schemas/EmployeeId'
-        orderType:
+        orderStatus:
           $ref: '#/components/schemas/OrderStatus'
 
     OrderSearchRequest:

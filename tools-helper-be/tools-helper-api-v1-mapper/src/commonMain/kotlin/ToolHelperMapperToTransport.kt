@@ -82,7 +82,7 @@ private fun ToolsHelperOrderPermissionClient.toTransportOrder() = when (this) {
     ToolsHelperOrderPermissionClient.CHANGE_STATUS -> OrderPermissions.CHANGE_STATUS
 }
 
-private fun ToolsHelperOrderStatus.toTransportOrder() = when (this) {
+internal fun ToolsHelperOrderStatus.toTransportOrder() = when (this) {
     ToolsHelperOrderStatus.CREATED -> OrderStatus.CREATED
     ToolsHelperOrderStatus.NONE -> null
     ToolsHelperOrderStatus.IN_PROGRESS -> OrderStatus.IN_PROGRESS

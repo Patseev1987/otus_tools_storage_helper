@@ -36,3 +36,15 @@ inline fun errorValidation(
     message = "Validation error for field $field: $description",
     level = level,
 )
+
+inline fun errorSystem(
+    violationCode: String,
+    level: LogLevel = LogLevel.ERROR,
+    e: Throwable,
+) = ToolsHelperError(
+    code = "system-$violationCode",
+    group = "system",
+    message = "System error occurred. Our stuff has been informed, please retry later",
+    level = level,
+    exception = e,
+)

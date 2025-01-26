@@ -81,6 +81,8 @@ fun ToolsHelperContext.fromTransport(request: OrderSearchRequest) {
 
 private fun OrderSearchFilter?.toInternal(): ToolsHelperOrderFilter = ToolsHelperOrderFilter(
     searchString = this?.searchString ?: EMPTY_STRING,
+    ownerId = this?.ownerId?.let { ToolsHelperEmployeeId(it) } ?: ToolsHelperEmployeeId.NONE,
+    orderStatus = this?.orderStatus.fromTransport()
 )
 
 private fun OrderCreateObject.toInternal(): ToolsHelperOrder = ToolsHelperOrder(

@@ -29,6 +29,10 @@ plugins {
 
 rootProject.name = "tools-helper-be"
 
+// Включает вот такую конструкцию
+//implementation(projects.m2l5Gradle.sub1.ssub1)
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 include(":tools-helper-api-v1-kmp")
 include(":tools-helper-common")
 include(":tools-helper-api-v1-mapper")

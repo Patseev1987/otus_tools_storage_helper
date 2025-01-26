@@ -76,6 +76,10 @@ kotlin {
                 implementation(project(":tools-helper-api-log1"))
                 implementation("ru.patseev.helper.libs:logging-kermit")
 
+                // DB
+                implementation(projects.toolsHelperRepoInmemory)
+                implementation(projects.toolsHelperRepoStubs)
+
             }
         }
 

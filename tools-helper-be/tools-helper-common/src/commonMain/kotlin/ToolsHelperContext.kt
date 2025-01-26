@@ -1,5 +1,6 @@
 import kotlinx.datetime.Instant
 import models.*
+import repo.IRepoOrder
 import stubs.ToolsHelperStubs
 import ws.IToolsHelperWsSession
 
@@ -24,6 +25,12 @@ data class ToolsHelperContext(
 
     var orderValidated: ToolsHelperOrder = ToolsHelperOrder(),
     var orderFilterValidated: ToolsHelperOrderFilter = ToolsHelperOrderFilter(),
+
+    var orderRepo: IRepoOrder = IRepoOrder.NONE,
+    var orderRepoRead: ToolsHelperOrder = ToolsHelperOrder(), // То, что прочитали из репозитория
+    var orderRepoPrepare: ToolsHelperOrder = ToolsHelperOrder(), // То, что готовим для сохранения в БД
+    var orderRepoDone: ToolsHelperOrder = ToolsHelperOrder(),  // Результат, полученный из БД
+    var ordersRepoDone: MutableList<ToolsHelperOrder> = mutableListOf(),
 
     var orderResponse: ToolsHelperOrder = ToolsHelperOrder(),
     var ordersResponses: MutableList<ToolsHelperOrder> = mutableListOf(),
