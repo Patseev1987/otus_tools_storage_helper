@@ -398,6 +398,10 @@ components:
         searchString:
           type: string
           description: Поисковая строка, которая будет искаться заказе
+        ownerId:
+          $ref: '#/components/schemas/EmployeeId'
+        orderType:
+          $ref: '#/components/schemas/OrderStatus'
 
     OrderSearchRequest:
       allOf:
