@@ -35,6 +35,7 @@ kotlinx-datetime = {module = "org.jetbrains.kotlinx:kotlinx-datetime", version.r
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.23.2" }
+cor = { module = "ru.patseev.helper.libs:cor-lib"}
 
 # Logging
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }

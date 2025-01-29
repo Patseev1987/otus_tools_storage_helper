@@ -11,15 +11,22 @@ data class ToolsHelperOrder(
     var orderStatus: ToolsHelperOrderStatus = ToolsHelperOrderStatus.NONE,
     var partCount: Int = 0,
     var createTime: Instant = Instant.NONE,
-    val tools: Map<String, Int> = mutableMapOf(),
-    val missingTools: Map<String, Int> = mutableMapOf(),
+    var tools: Map<String, Int> = mutableMapOf(),
+    var missingTools: Map<String, Int> = mutableMapOf(),
     var lock: ToolsHelperOrderLock = ToolsHelperOrderLock.NONE,
     val permissionsClient: MutableSet<ToolsHelperOrderPermissionClient> = mutableSetOf()
 ) {
     fun isEmpty() = this == NONE
 
+    fun deepCopy() = copy(
+        permissionsClient = permissionsClient.toMutableSet(),
+        tools = tools.toMutableMap(),
+        missingTools = missingTools.toMutableMap()
+    )
+
     companion object {
         private val NONE = ToolsHelperOrder()
+        val FORMAT_REGEX = Regex("^[0-9a-zA-Z#:-]+$")
     }
 
 }

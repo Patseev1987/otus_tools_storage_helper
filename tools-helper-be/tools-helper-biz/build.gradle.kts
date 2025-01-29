@@ -11,6 +11,8 @@ kotlin {
                 implementation(kotlin("stdlib-common"))
                 implementation(project(":tools-helper-common"))
                 implementation(project(":tools-helper-stubs"))
+
+                implementation(libs.cor)
             }
         }
         commonTest {
